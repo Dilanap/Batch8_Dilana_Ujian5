@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Add Plot Mata Kuliah</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+<div class="container-sm">	
+<div class="my-10 p-10 bg-body rounded shadow-sm">
+<form th:action="@{/plotmatakuliah/view}" th:object="${plotmatakuliah}" method="post" enctype="multipart/form-data">
+<div class="mb-3">
+  <label for="Dosen" class="form-label">Nama Dosen</label>
+  </div>
+<div class="mb-3"><td><select id="multiSelectElementsSelected1"
+            name="multiSelectElementsSelected1"
+            multiple="multiple"
+            th:field="*{dosen}">
+        <option th:each="dosen,row: ${listDosen}"
+                th:value="${dosen.idDosen}"
+                th:text="${dosen.namaDosen}"></option>
+</select> </div>
+
+<div class="mb-3">
+  <label for="Mahasiswa" class="form-label">Mahasiswa</label>
+  </div>
+  
+  <div class="mb-3"><td><select id="multiSelectElementsSelected1"
+            name="multiSelectElementsSelected1"
+            multiple="multiple"
+            th:field="*{mahasiswa}">
+        <option th:each="mahasiswa,row: ${listMhs}"
+                th:value="${mahasiswa.idMahasiswa}"
+                th:text="${mahasiswa.namaMahasiswa}"></option>
+</select> </div>
+
+<div class="mb-3">
+  <label for="Matakuliah" class="form-label">Mata Kuliah</label>
+  </div>
+  
+  <div class="mb-3"><td><select id="multiSelectElementsSelected1"
+            name="multiSelectElementsSelected1"
+            multiple="multiple"
+            th:field="*{matakuliah}">
+        <option th:each="matakuliah,row: ${listMatkul}"
+                th:value="${matakuliah.idMataKuliah}"
+                th:text="${matakuliah.namaMataKuliah}"></option>
+</select> </div>
+
+
+<div class="mb-3">
+  <label for="Soal" class="form-label">Soal</label>
+  </div>
+  
+  <div class="mb-3"><td><select id="multiSelectElementsSelected1"
+            name="multiSelectElementsSelected1"
+            multiple="multiple"
+            th:field="*{soal}">
+        <option th:each="soal,row: ${listsoal}"
+                th:value="${soal.id}"
+                th:text="${soal.namaSoal}"></option>
+</select> </div>
+<input type="hidden" th:field="*{idPlotMataKuliah}">
+ <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" />
+</form>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+
+</body>
+</html>
